@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151515">
+  <meta name="description" content="Portfolio di Alessandro Bonfiglio: grafica multimediale, fotografia, eventi e post-produzione.">
+  <title>Alessandro Bonfiglio — Portfolio</title>
+  <style>
+    :root{--bg:#f4f1eb;--paper:#fffdf9;--ink:#171717;--muted:#68645e;--line:#ded8ce;--gold:#ad9160;--dark:#171717;--dark2:#242321;--max:1160px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(var(--max),calc(100% - 44px));margin:auto}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line);gap:20px}
+    .brand{font-size:.86rem;letter-spacing:.13em;text-transform:uppercase;font-weight:750}
+    .navlinks{display:flex;gap:24px;flex-wrap:wrap;font-size:.88rem;color:var(--muted)}
+    .navlinks a:hover,.textlink:hover{color:var(--gold)}
+    .eyebrow{font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:750}
+    .hero{display:grid;grid-template-columns:1.2fr .8fr;gap:64px;align-items:center;padding:88px 0 94px}
+    h1{font-size:clamp(3rem,7vw,6.5rem);line-height:.98;letter-spacing:-.065em;margin:18px 0 26px;font-weight:700}
+    h1 span{font-family:Georgia,serif;font-weight:400;font-style:italic;color:var(--gold)}
+    .lead{font-size:1.12rem;max-width:620px;color:#4d4a45}
+    .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--ink);font-size:.88rem;font-weight:650;transition:.2s}
+    .btn.primary{background:var(--ink);color:white}.btn:hover{transform:translateY(-2px)}
+    .hero-art{min-height:440px;background:var(--dark);color:white;position:relative;overflow:hidden;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+    .hero-art:before{content:"";position:absolute;width:310px;height:390px;border:1px solid rgba(255,255,255,.22);border-radius:48% 48% 4px 4px;right:-20px;top:54px;transform:rotate(12deg)}
+    .hero-art:after{content:"";position:absolute;width:210px;height:280px;border:1px solid var(--gold);border-radius:48% 48% 4px 4px;right:70px;top:105px;transform:rotate(-8deg)}
+    .camera-mark{font-size:4.2rem;line-height:1;position:relative;z-index:1}
+    .art-bottom{position:relative;z-index:1;max-width:240px}
+    .art-bottom strong{font-family:Georgia,serif;font-size:2rem;line-height:1.1;font-weight:400;display:block;margin-bottom:10px}
+    section{padding:78px 0;border-top:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:.65fr 1.35fr;gap:40px;margin-bottom:36px}
+    h2{font-size:clamp(2rem,4vw,3.5rem);letter-spacing:-.045em;line-height:1.05;margin:8px 0 0}
+    .section-intro{max-width:650px;color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+    .panel{background:var(--paper);padding:28px;border:1px solid var(--line)}
+    .panel h3{margin:0 0 12px;font-size:1.12rem}
+    .panel p{margin:0;color:var(--muted)}
+    .timeline{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .timeline-item{background:var(--paper);border:1px solid var(--line);padding:26px;position:relative}
+    .date{font-size:.78rem;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);font-weight:750}
+    .timeline-item h3{margin:9px 0 6px;font-size:1.18rem}
+    .timeline-item p{margin:0;color:var(--muted)}
+    .tag{display:inline-block;border:1px solid var(--line);padding:5px 9px;margin:14px 6px 0 0;font-size:.75rem;color:var(--muted)}
+    .skills{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .skill{border-top:2px solid var(--gold);background:var(--paper);padding:22px}
+    .skill h3{margin:0 0 10px;font-size:1rem}
+    .skill p{margin:0;color:var(--muted);font-size:.92rem}
+    .photo-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+    .photo-card{min-height:260px;position:relative;overflow:hidden;background:#262521;color:white;padding:22px;display:flex;align-items:flex-end}
+    .photo-card:nth-child(2){background:#59564f}.photo-card:nth-child(3){background:#343a3b}
+    .photo-card:before{content:"";position:absolute;inset:0;background:linear-gradient(155deg,transparent 25%,rgba(0,0,0,.65))}
+    .photo-card:after{content:"";position:absolute;width:170px;height:220px;border:1px solid rgba(255,255,255,.3);border-radius:48% 48% 2px 2px;right:-20px;top:-22px;transform:rotate(18deg)}
+    .photo-card div{position:relative;z-index:1}
+    .photo-card h3{margin:0 0 4px;font-family:Georgia,serif;font-weight:400;font-size:1.6rem}
+    .photo-card p{margin:0;font-size:.82rem;color:#e1ddd5}
+    .photo-note{font-size:.86rem;color:var(--muted);margin-top:14px}
+    .future{background:var(--dark);color:white}
+    .future .section-intro{color:#c7c2b8}
+    .future .eyebrow{color:#c5a775}
+    .future-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .future-card{border:1px solid #49453e;padding:26px}
+    .future-card p{color:#c7c2b8;margin-bottom:0}
+    .contact{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:start}
+    .contact-links{display:grid;gap:12px}
+    .contact-link{background:var(--paper);border:1px solid var(--line);padding:17px 20px;overflow-wrap:anywhere}
+    .contact-link span{display:block;color:var(--muted);font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+    footer{padding:24px 0;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+    @media(max-width:760px){.wrap{width:min(100% - 30px,var(--max))}.nav{align-items:flex-start;flex-direction:column}.navlinks{gap:14px}.hero{grid-template-columns:1fr;gap:34px;padding:58px 0}.hero-art{min-height:330px}.section-head,.about-grid,.timeline,.future-grid,.contact{grid-template-columns:1fr;gap:18px}.skills{grid-template-columns:1fr 1fr}.photo-grid{grid-template-columns:1fr}.photo-card{min-height:220px}section{padding:56px 0}}
+    @media(max-width:420px){.skills{grid-template-columns:1fr}h1{font-size:3.2rem}}
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <nav class="nav" aria-label="Navigazione principale">
+      <a class="brand" href="#inizio">AB / Portfolio</a>
+      <div class="navlinks">
+        <a href="#profilo">Profilo</a><a href="#formazione">Formazione</a><a href="#competenze">Competenze</a><a href="#fotografia">Fotografia</a><a href="#contatti">Contatti</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="wrap" id="inizio">
+      <section class="hero" style="border-top:0">
+        <div>
+          <div class="eyebrow">Portfolio personale · Grafica & fotografia</div>
+          <h1>Alessandro<br><span>Bonfiglio.</span></h1>
+          <p class="lead">Mi sto formando nel mondo della grafica pubblicitaria e multimediale, mentre coltivo la mia passione per la fotografia. Mi piace raccontare persone, momenti ed eventi attraverso le immagini, curandone anche la post-produzione.</p>
+          <div class="actions">
+            <a class="btn primary" href="#fotografia">Scopri la mia visione</a>
+            <a class="btn" href="#contatti">Contattami</a>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="Elemento grafico decorativo ispirato alla fotografia">
+          <div class="camera-mark">◎</div>
+          <div class="art-bottom"><strong>Guardare.<br>Inquadrare.<br>Raccontare.</strong><span style="color:#c8c1b5;font-size:.85rem">La fotografia è il mio modo di fermare ciò che merita di essere ricordato.</span></div>
+        </div>
+      </section>
+    </div>
+
+    <section id="profilo">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">01 / Profilo</div><h2>Creatività pratica,<br>sguardo curioso.</h2></div>
+          <p class="section-intro">Il mio percorso unisce strumenti digitali, comunicazione visiva e voglia di imparare sul campo. Sono curioso, mi piace sperimentare e migliorare passo dopo passo, soprattutto quando posso trasformare un'idea in qualcosa di concreto.</p>
+        </div>
+        <div class="about-grid">
+          <article class="panel"><h3>Il mio percorso</h3><p>Frequento E.C.Fo.P. a Velasca, dove studio grafica pubblicitaria e multimediale. Sto costruendo le mie competenze attraverso la scuola e le esperienze di stage, con l'obiettivo di crescere nel settore creativo.</p></article>
+          <article class="panel"><h3>Una passione nata nel tempo</h3><p>Da piccolo mi appassionava il mondo del gelato e ancora oggi mi piace prepararlo. Crescendo, però, ho scoperto quanto mi attirassero le fotocamere: oggi mi interessa soprattutto fotografare persone, eventi e momenti reali.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="formazione">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">02 / Formazione ed esperienze</div><h2>Imparare<br>facendo.</h2></div>
+          <p class="section-intro">La formazione mi permette di esplorare sia la parte creativa sia quella tecnica. Le esperienze in azienda sono un'occasione per conoscere meglio il lavoro, collaborare e mettere in pratica ciò che studio.</p>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item"><div class="date">2024 – in corso</div><h3>E.C.Fo.P. · Velasca</h3><p>Grafica pubblicitaria e grafica multimediale. Percorso formativo dedicato alla comunicazione visiva e agli strumenti creativi digitali.</p><span class="tag">Formazione</span><span class="tag">Grafica</span></article>
+          <article class="timeline-item"><div class="date">Marzo – maggio 2026</div><h3>Publinews S.r.l. · Trezzo sull'Adda</h3><p>Esperienza di stage prevista nel percorso formativo. Da completare con mansioni svolte e attività seguite.</p><span class="tag">Stage</span></article>
+          <article class="timeline-item"><div class="date">Ottobre – dicembre 2026</div><h3>Dafne Marketing S.r.l. · Concorezzo</h3><p>Stage previsto. Da aggiornare con i progetti, le attività e le competenze sviluppate durante l'esperienza.</p><span class="tag">Stage</span></article>
+          <article class="timeline-item"><div class="date">Prossimi passi</div><h3>Diploma e specializzazione</h3><p>Valuto di proseguire il percorso fino al 2027, sostenere l'esame di accesso agli ITS e approfondire la fotografia con un possibile percorso biennale all'ITS COSMO.</p><span class="tag">Obiettivo formativo</span></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="competenze">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">03 / Competenze</div><h2>Strumenti per<br>dare forma alle idee.</h2></div>
+          <p class="section-intro">Uso software creativi per lavorare su grafica, immagini e video. Nella fotografia continuo a imparare, sperimentando con la fotocamera, la luce e la post-produzione.</p>
+        </div>
+        <div class="skills">
+          <article class="skill"><h3>Grafica e impaginazione</h3><p>Adobe InDesign e Illustrator per layout, composizioni e comunicazione visiva.</p></article>
+          <article class="skill"><h3>Fotografia e colore</h3><p>Interesse per la tecnica fotografica e per Adobe Lightroom, con voglia di imparare a selezionare, sviluppare e valorizzare le immagini.</p></article>
+          <article class="skill"><h3>Fotoritocco</h3><p>Adobe Photoshop per intervenire sulle immagini e rifinire i progetti visivi.</p></article>
+          <article class="skill"><h3>Video e montaggio</h3><p>Adobe Premiere Pro per il montaggio e la gestione di contenuti video.</p></article>
+          <article class="skill"><h3>Motion design</h3><p>Adobe After Effects per iniziare a esplorare animazioni ed elementi in movimento.</p></article>
+          <article class="skill"><h3>Apprendimento continuo</h3><p>Mi piace imparare nuove tecniche, soprattutto nella gestione della luce e nella costruzione dello scatto.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="fotografia">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">04 / Fotografia</div><h2>Le storie sono<br>nei dettagli.</h2></div>
+          <p class="section-intro">Mi interessa fotografare le persone, gli eventi e le occasioni che hanno qualcosa da raccontare. Vorrei crescere lavorando su richiesta, imparando a cogliere il momento e a valorizzarlo in post-produzione.</p>
+        </div>
+        <div class="photo-grid">
+          <article class="photo-card"><div><h3>Persone</h3><p>Espressioni, carattere, momenti autentici.</p></div></article>
+          <article class="photo-card"><div><h3>Eventi</h3><p>Ricordi, atmosfera e attimi da conservare.</p></div></article>
+          <article class="photo-card"><div><h3>Matrimoni</h3><p>Una storia speciale, raccontata attraverso le immagini.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="future" id="obiettivi">
+      <div class="wrap">
+        <div class="section-head">
+          <div><div class="eyebrow">05 / Obiettivi</div><h2>Trasformare la passione<br>in professione.</h2></div>
+          <p class="section-intro">Il mio obiettivo è lavorare come fotografo, seguendo eventi, matrimoni e servizi su richiesta, per poi curare la selezione e la post-produzione delle immagini con Lightroom.</p>
+        </div>
+        <div class="future-grid">
+          <article class="future-card"><div class="eyebrow">Direzione professionale</div><h3>Fotografia su richiesta</h3><p>Costruire esperienza sul campo, lavorare con le persone e imparare a gestire un servizio fotografico dall'incontro iniziale alla consegna finale.</p></article>
+          <article class="future-card"><div class="eyebrow">Crescita continua</div><h3>Tecnica e sensibilità visiva</h3><p>Approfondire illuminazione, composizione e post-produzione, mantenendo la curiosità di provare nuove tecniche e migliorare a ogni progetto.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contatti">
+      <div class="wrap">
+        <div class="contact">
+          <div><div class="eyebrow">06 / Contatti</div><h2>Parliamo del<br>prossimo progetto.</h2><p class="section-intro" style="margin-top:18px">Per collaborazioni, opportunità formative o progetti fotografici, puoi contattarmi tramite email o LinkedIn.</p></div>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:alessandrobonfiglio5@gmail.com"><span>Email</span>alessandrobonfiglio5@gmail.com ↗</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/alessandro-bonfiglio-727470447/" target="_blank" rel="noopener noreferrer"><span>LinkedIn</span>linkedin.com/in/alessandro-bonfiglio-727470447 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap"><span>© <span id="year"></span> Alessandro Bonfiglio</span><span>Portfolio personale · Grafica & fotografia</span></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
